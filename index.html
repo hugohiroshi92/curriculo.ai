@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Hiroshi - Coordenador de Engenharia de IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        // Aplica o tema salvo no localStorage antes da página carregar para evitar piscar
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .section-title {
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+        }
+        .dark .section-title {
+            border-bottom-color: #60a5fa;
+        }
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .dark .card {
+            background-color: #1e293b;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .dark .card:hover {
+             box-shadow: 0 10px 15px -3px rgb(255 255 255 / 0.05), 0 4px 6px -4px rgb(255 255 255 / 0.05);
+        }
+        .tag {
+            background-color: #e0f2fe;
+            color: #0c4a6e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .dark .tag {
+            background-color: #0c4a6e;
+            color: #e0f2fe;
+        }
+        /* Estilos para o Chat com IA */
+        #chat-window {
+            height: 300px;
+            overflow-y: auto;
+        }
+        .chat-bubble {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+        .user-bubble {
+            background-color: #3b82f6;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+        .ai-bubble {
+            background-color: #e5e7eb;
+            color: #1f2937;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+        .dark .ai-bubble {
+            background-color: #374151;
+            color: #f3f4f6;
+        }
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #9ca3af;
+            border-radius: 50%;
+            display: inline-block;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700 dark:bg-slate-900 dark:text-slate-300 transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-800 shadow-md sticky top-0 z-10">
+        <div class="container mx-auto max-w-5xl px-6 py-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="https://placehold.co/128x128/e2e8f0/64748b?text=Hugo" alt="Foto de Hugo Hiroshi" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-500 object-cover">
+                    <div class="text-center sm:text-left">
+                        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Hugo Hiroshi</h1>
+                        <p class="text-md sm:text-lg text-blue-600 dark:text-blue-400 mt-1">Coordenador de Engenharia & Pesquisador de IA</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-2xl mt-4 sm:mt-0">
+                    <a href="https://www.linkedin.com/in/hugo-hiroshi" target="_blank" class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/hugohiroshi92" target="_blank" class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.genaibr.ai" target="_blank" class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"><i class="fas fa-blog"></i></a>
+                    <a href="mailto:hugo.hiroshi.92@gmail.com" class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"><i class="fas fa-envelope"></i></a>
+                    <button id="theme-toggle" class="text-slate-600 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
+                        <i class="fas fa-moon" id="theme-icon-dark"></i>
+                        <i class="fas fa-sun" id="theme-icon-light"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-5xl p-6">
+
+        <!-- About Me Section -->
+        <section id="sobre" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Sobre Mim</h2>
+            <p class="text-lg leading-relaxed text-slate-800 dark:text-slate-300">
+                Profissional de Data Science com especialização e paixão pela vanguarda da tecnologia. Com sólida trajetória em análise de dados e engenharia de software, hoje minha carreira é focada em pesquisa e aplicação de Inteligência Artificial Generativa. Atuo como Pesquisador e Coordenador de IA Sênior no Centro de Excelência em Inteligência Artificial (CEIA) e sou mestrando na UFG, onde exploro o desenvolvimento de Agentes de IA. Meu objetivo é criar soluções inteligentes que gerem impacto real nos negócios e na vida das pessoas.
+            </p>
+        </section>
+        
+        <!-- Gemini AI Chat Section -->
+        <section id="ai-assistant" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">✨ Converse com meu Assistente de IA</h2>
+            <div class="card p-6">
+                <div id="chat-window" class="border border-slate-200 dark:border-slate-600 rounded-t-lg p-4 flex flex-col space-y-2 bg-slate-100 dark:bg-slate-800">
+                    <!-- Mensagens do chat aparecerão aqui -->
+                     <div class="chat-bubble ai-bubble">Olá! Eu sou o Hugo AI, o assistente de IA do Hugo Hiroshi. Como posso ajudar? Você pode me perguntar sobre a experiência dele ou pedir ideias de projetos de IA.</div>
+                </div>
+                <div class="border border-t-0 border-slate-200 dark:border-slate-600 rounded-b-lg p-2 flex items-center bg-white dark:bg-slate-900">
+                    <input type="text" id="chat-input" class="flex-grow bg-transparent border-none focus:ring-0 p-2 text-slate-900 dark:text-white" placeholder="Digite sua mensagem...">
+                    <button id="chat-send" class="ml-2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition-colors disabled:bg-slate-400">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experiencia" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Experiência em Inteligência Artificial</h2>
+            <div class="space-y-8">
+                <!-- CEIA -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pesquisador & Coordenador de IA Sênior</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Centro de Excelência em Inteligência Artificial (CEIA)</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">fevereiro de 2025 - Presente</p>
+                    <p class="mb-3 text-slate-800 dark:text-slate-300">Liderança técnica de 2 equipes multidisciplinares (10 analistas) no desenvolvimento de agentes de IA com LLMs. Responsável pela arquitetura de soluções, mentoria da equipe e definição do roadmap de projetos.</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-800 dark:text-slate-300">
+                        <li>Coordenação de projeto de chatbot para saúde da mulher, focado em interação humanizada.</li>
+                        <li>Gestão de sistema de extração de dados de documentos complexos com motor de regras e inferência.</li>
+                        <li>Desenvolvimento de arquitetura de microsserviços e orientada a eventos em nuvem AWS.</li>
+                    </ul>
+                </div>
+
+                <!-- Lugui AI -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Desenvolvedor de Agentes IA</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Lugui AI</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">março de 2025 - Presente</p>
+                    <p class="text-slate-800 dark:text-slate-300">Desenvolvimento de soluções com Inteligência Artificial generativa com foco em Agentes de Inteligência Artificial autônomos e especializados.</p>
+                </div>
+                
+                <!-- GenAI BR -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Fundador</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">GenAI BR</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">junho de 2024 - Presente</p>
+                    <p class="text-slate-800 dark:text-slate-300">Fundador do portal de notícias GenAI BR, com o objetivo de levar conteúdo de qualidade, acessível e em português sobre o universo da Inteligência Artificial Generativa ao público brasileiro.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projetos" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Projetos em Destaque</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Chatbot IA para Saúde da Mulher</h3>
+                    <p class="mb-4 text-slate-800 dark:text-slate-300">Desenvolvimento de um agente conversacional para fornecer suporte e informações de saúde, utilizando LLMs para garantir interações empáticas e precisas.</p>
+                    <div>
+                        <span class="tag">LLM</span>
+                        <span class="tag">Chatbot</span>
+                        <span class="tag">Saúde</span>
+                    </div>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Extração Inteligente de Dados</h3>
+                    <p class="mb-4 text-slate-800 dark:text-slate-300">Criação de um sistema para extração automática de dados em documentos não estruturados, utilizando um motor de regras e inferência para garantir alta acurácia.</p>
+                    <div>
+                        <span class="tag">Extração de Dados</span>
+                        <span class="tag">Motor de Regras</span>
+                        <span class="tag">Automação</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="competencias">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Competências & Tecnologias</h2>
+            <div class="card p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">IA & Liderança</h4>
+                        <ul class="list-disc list-inside text-slate-800 dark:text-slate-300">
+                            <li>Agentes de IA</li>
+                            <li>LLMs & GenAI</li>
+                            <li>Engenharia de Software</li>
+                            <li>Liderança Técnica</li>
+                            <li>Gestão de Projetos</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Cloud (AWS)</h4>
+                        <ul class="list-disc list-inside text-slate-800 dark:text-slate-300">
+                            <li>EventBridge</li>
+                            <li>Lambda</li>
+                            <li>Aurora DB</li>
+                            <li>SQS & S3</li>
+                            <li>ECS</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Outras Ferramentas</h4>
+                        <ul class="list-disc list-inside text-slate-800 dark:text-slate-300">
+                            <li>Python & SQL</li>
+                            <li>Google ADK</li>
+                            <li>Docker</li>
+                            <li>BI Tools</li>
+                            <li>Metodologias Ágeis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 dark:bg-black text-white mt-12">
+        <div class="container mx-auto max-w-5xl p-6 text-center text-slate-400">
+            <p>&copy; 2025 Hugo Hiroshi. Desenvolvido com foco em IA.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica para o botão de troca de tema
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconDark = document.getElementById('theme-icon-dark');
+        const themeIconLight = document.getElementById('theme-icon-light');
+
+        function updateIcon() {
+            if (document.documentElement.classList.contains('dark')) {
+                themeIconDark.style.display = 'none';
+                themeIconLight.style.display = 'inline';
+            } else {
+                themeIconDark.style.display = 'inline';
+                themeIconLight.style.display = 'none';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateIcon();
+        });
+
+        updateIcon();
+
+        // Lógica do Chat com Gemini API
+        const chatWindow = document.getElementById('chat-window');
+        const chatInput = document.getElementById('chat-input');
+        const sendButton = document.getElementById('chat-send');
+        
+        // Coleta as informações do currículo para usar no prompt
+        const resumeText = document.body.innerText; 
+        
+        let chatHistory = [];
+
+        const systemPrompt = `You are Hugo AI, the professional AI assistant of Hugo Hiroshi. You are an expert in Generative AI, LLM Agents, AWS (EventBridge, Lambda, Aurora DB, SQS, S3, ECS), Python, SQL, and project leadership. You have all the information from Hugo's resume. Your goal is to answer questions in Portuguese about Hugo's experience, skills, and projects. You can also generate innovative AI project ideas in Portuguese if a user asks for one related to a specific industry. Be professional, helpful, and insightful. Base your answers on the provided resume. If you don't know something, state that you'd need to check with the 'human' Hugo. Here is the resume information to base your answers on: ${resumeText}`;
+
+        chatHistory.push({ role: "system", parts: [{ text: systemPrompt }] });
+
+
+        async function sendMessage() {
+            const userMessage = chatInput.value.trim();
+            if (!userMessage) return;
+
+            // Adiciona a mensagem do usuário na UI
+            appendMessage(userMessage, 'user');
+            chatInput.value = '';
+            sendButton.disabled = true;
+
+            // Adiciona a mensagem do usuário ao histórico
+            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+
+            // Mostra o indicador de "digitando"
+            showTypingIndicator();
+
+            try {
+                // Configuração da chamada para a API do Gemini
+                const apiKey = ""; // A chave será injetada pelo ambiente
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                
+                const payload = {
+                    contents: chatHistory.map(item => ({
+                        role: item.role === 'system' ? 'user' : item.role, // API não tem role 'system', então mapeamos para 'user' no primeiro turno
+                        parts: item.parts
+                    }))
+                };
+
+                // Remove a role 'system' após o primeiro turno, se necessário, ou mantém a lógica de mapeamento
+                if (payload.contents[0].role === 'user' && chatHistory[0].role === 'system') {
+                    payload.contents[0].parts.unshift({text: systemPrompt});
+                }
+
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                let aiResponse = "Desculpe, não consegui processar a resposta. Tente novamente.";
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    aiResponse = result.candidates[0].content.parts[0].text;
+                }
+                
+                // Adiciona a resposta da IA ao histórico
+                chatHistory.push({ role: "model", parts: [{ text: aiResponse }] });
+
+                // Remove o indicador e mostra a resposta da IA
+                hideTypingIndicator();
+                appendMessage(aiResponse, 'ai');
+
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                hideTypingIndicator();
+                appendMessage("Ocorreu um erro ao conectar com o assistente. Por favor, tente mais tarde.", 'ai');
+            } finally {
+                sendButton.disabled = false;
+                chatInput.focus();
+            }
+        }
+
+        function appendMessage(message, sender) {
+            const bubble = document.createElement('div');
+            bubble.className = `chat-bubble ${sender === 'user' ? 'user-bubble' : 'ai-bubble'}`;
+            bubble.textContent = message;
+            chatWindow.appendChild(bubble);
+            chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll
+        }
+
+        function showTypingIndicator() {
+            const indicator = document.createElement('div');
+            indicator.id = 'typing-indicator';
+            indicator.className = 'chat-bubble ai-bubble typing-indicator';
+            indicator.innerHTML = '<span></span><span></span><span></span>';
+            chatWindow.appendChild(indicator);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+    </script>
+
+</body>
+</html>
