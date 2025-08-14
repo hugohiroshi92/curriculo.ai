@@ -36,7 +36,7 @@ jobs:
       - name: Inject API Key
         run: |
           sed -i 's/GEMINI_API_KEY_PLACEHOLDER/${{ secrets.GEMINI_API_KEY }}/g' index.html
-          echo "API Key injection completed"
+          echo "API Key injection completed!"
           # Verifica se a substituição foi feita (sem mostrar a chave real)
           if grep -q "GEMINI_API_KEY_PLACEHOLDER" index.html; then
             echo "WARNING: Placeholder still found in file"
