@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hugo Hiroshi - Coordenador de Engenharia de IA</title>
+    <title>Hugo Hiroshi - Gerente de IA | Cientista de Dados</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,7 +115,10 @@
         }
         
         /* Responsividade para telas menores */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+             main {
+                margin-right: 0 !important;
+            }
             #ai-assistant {
                 position: fixed;
                 top: auto;
@@ -124,10 +127,6 @@
                 left: 20px;
                 width: auto;
                 max-height: 400px;
-            }
-            
-            main {
-                margin-right: 0 !important;
             }
         }
         
@@ -162,6 +161,7 @@
             padding: 10px 15px;
             border-radius: 20px;
             margin-bottom: 10px;
+            line-height: 1.4;
         }
         .user-bubble {
             background-color: #3b82f6;
@@ -202,10 +202,10 @@
         <div class="container mx-auto max-w-5xl px-6 py-4">
             <div class="flex flex-col sm:flex-row items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <img src="1749540947841.jpeg" alt="Foto de Hugo Hiroshi" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-500 object-cover">
+                    <img src="https://placehold.co/100x100/3b82f6/ffffff?text=HH" alt="Foto de Hugo Hiroshi" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-blue-500 object-cover">
                     <div class="text-center sm:text-left">
                         <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Hugo Hiroshi</h1>
-                        <p class="text-md sm:text-lg text-blue-600 dark:text-blue-400 mt-1">Coordenador de Engenharia & Pesquisador de IA</p>
+                        <p class="text-md sm:text-lg text-blue-600 dark:text-blue-400 mt-1">Gerente de IA | Cientista de Dados | GenAI BR</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4 text-2xl mt-4 sm:mt-0">
@@ -229,59 +229,111 @@
         <section id="sobre" class="mb-12">
             <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Sobre Mim</h2>
             <p class="text-lg leading-relaxed text-slate-800 dark:text-slate-300">
-                Profissional de Data Science com especialização e paixão pela vanguarda da tecnologia. Com sólida trajetória em análise de dados e engenharia de software, hoje minha carreira é focada em pesquisa e aplicação de Inteligência Artificial Generativa. Atuo como Pesquisador e Coordenador de IA Sênior no Centro de Excelência em Inteligência Artificial (CEIA) e sou mestrando na UFG, onde exploro o desenvolvimento de Agentes de IA. Meu objetivo é criar soluções inteligentes que gerem impacto real nos negócios e na vida das pessoas.
+                Profissional de Data Science com especialização e paixão pela vanguarda da tecnologia. Com uma sólida trajetória na análise de dados e desenvolvimento de software, hoje minha carreira é focada em pesquisa e aplicação de Inteligência Artificial Generativa. Atuo como Pesquisador de IA Sênior no Centro de Excelência em Inteligência Artificial (CEIA) e sou mestrando na UFG, onde exploro o desenvolvimento de Agentes de IA.
             </p>
         </section>
         
         <!-- Gemini AI Chat Section -->
-        <section id="ai-assistant">
-            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">✨ Assistente de IA</h2>
+        <aside id="ai-assistant">
+            <h2 class="font-bold">✨ Assistente de IA</h2>
             <button id="chat-toggle" title="Minimizar/Expandir Chat">−</button>
-            <div class="card p-6">
-                <div id="chat-window" class="border border-slate-200 dark:border-slate-600 rounded-t-lg p-4 flex flex-col space-y-2 bg-slate-100 dark:bg-slate-800">
-                    <!-- Mensagens do chat aparecerão aqui -->
+            <div class="card p-0 sm:p-0">
+                <div id="chat-window" class="border-b border-slate-200 dark:border-slate-600 p-4 flex flex-col space-y-2 bg-slate-100 dark:bg-slate-800">
+                    <!-- Chat messages will appear here -->
                      <div class="chat-bubble ai-bubble">Olá! Eu sou o Hugo AI, o assistente de IA do Hugo Hiroshi. Como posso ajudar? Você pode me perguntar sobre a experiência dele ou pedir ideias de projetos de IA.</div>
                 </div>
-                <div class="border border-t-0 border-slate-200 dark:border-slate-600 rounded-b-lg p-2 flex items-center bg-white dark:bg-slate-900">
+                <div class="p-2 flex items-center bg-white dark:bg-slate-900">
                     <input type="text" id="chat-input" class="flex-grow bg-transparent border-none focus:ring-0 p-2 text-slate-900 dark:text-white" placeholder="Digite sua mensagem...">
                     <button id="chat-send" class="ml-2 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-blue-700 transition-colors disabled:bg-slate-400">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
-        </section>
+        </aside>
 
         <!-- Experience Section -->
         <section id="experiencia" class="mb-12">
             <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Experiência em Inteligência Artificial</h2>
             <div class="space-y-8">
-                <!-- CEIA -->
+                
+                <!-- Evah Saúde -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pesquisador & Coordenador de IA Sênior</h3>
-                    <p class="font-semibold text-blue-600 dark:text-blue-400">Centro de Excelência em Inteligência Artificial (CEIA)</p>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">fevereiro de 2025 - Presente</p>
-                    <p class="mb-3 text-slate-800 dark:text-slate-300">Liderança técnica de 2 equipes multidisciplinares (10 analistas) no desenvolvimento de agentes de IA com LLMs. Responsável pela arquitetura de soluções, mentoria da equipe e definição do roadmap de projetos.</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gerente de IA</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Evah Saúde</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">agosto de 2025 - Presente</p>
+                    <p class="mb-3 text-slate-800 dark:text-slate-300">Liderança estratégica em IA focada em saúde digital da mulher. Gestão de equipe multidisciplinar e desenvolvimento de um framework proprietário de agentes de IA para acompanhamento personalizado.</p>
                     <ul class="list-disc list-inside space-y-2 text-slate-800 dark:text-slate-300">
-                        <li>Coordenação de projeto de chatbot para saúde da mulher, focado em interação humanizada.</li>
-                        <li>Gestão de sistema de extração de dados de documentos complexos com motor de regras e inferência.</li>
-                        <li>Desenvolvimento de arquitetura de microsserviços e orientada a eventos em nuvem AWS.</li>
+                        <li>Implementação de modelos GenAI para conteúdo e planos de cuidado.</li>
+                        <li>Criação de sistemas de recomendação e análise preditiva de riscos.</li>
+                        <li>Desenvolvimento de chatbots conversacionais avançados (NLP).</li>
                     </ul>
                 </div>
 
-                <!-- Lugui AI -->
+                <!-- Américas Health (AMH) -->
                 <div class="card p-6">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Desenvolvedor de Agentes IA</h3>
-                    <p class="font-semibold text-blue-600 dark:text-blue-400">Lugui AI</p>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">março de 2025 - Presente</p>
-                    <p class="text-slate-800 dark:text-slate-300">Desenvolvimento de soluções com Inteligência Artificial generativa com foco em Agentes de Inteligência Artificial autônomos e especializados.</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gerente de IA</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Américas Health (AMH)</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">maio de 2025 - Presente</p>
+                    <p class="text-slate-800 dark:text-slate-300">Responsável por liderar a estratégia de IA, focando na aplicação de IA generativa para otimizar processos clínicos, administrativos e transformar a experiência em saúde.</p>
                 </div>
                 
+                <!-- CEIA -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pesquisador de IA Sênior</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Centro de Excelência em Inteligência Artificial (CEIA)</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">fevereiro de 2025 - Presente</p>
+                    <p class="text-slate-800 dark:text-slate-300">Coordenador em projetos especializado em Agentes de Inteligência Artificial Generativa e suas aplicações práticas, liderando equipes e definindo a arquitetura de soluções.</p>
+                </div>
+                
+                <!-- LAMIA -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Instrutor de Agentes de IA - Monitor Responsável</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">LAMIA</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">janeiro de 2025 - Presente</p>
+                    <p class="text-slate-800 dark:text-slate-300">Oriento estudantes e profissionais na aplicação prática de técnicas avançadas de IA, com enfoque no desenvolvimento de agentes inteligentes para o contexto industrial.</p>
+                </div>
+
                 <!-- GenAI BR -->
                 <div class="card p-6">
                     <h3 class="text-xl font-bold text-slate-900 dark:text-white">Fundador</h3>
                     <p class="font-semibold text-blue-600 dark:text-blue-400">GenAI BR</p>
                     <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">junho de 2024 - Presente</p>
                     <p class="text-slate-800 dark:text-slate-300">Fundador do portal de notícias GenAI BR, com o objetivo de levar conteúdo de qualidade, acessível e em português sobre o universo da Inteligência Artificial Generativa ao público brasileiro.</p>
+                </div>
+
+                 <!-- Lugui AI -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Desenvolvedor de Agentes IA</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Lugui AI</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">março de 2025 - junho de 2025</p>
+                    <p class="text-slate-800 dark:text-slate-300">Desenvolvimento de soluções com Inteligência Artificial generativa com foco em Agentes de Inteligência Artificial autônomos e especializados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Previous Experience Section -->
+        <section id="experiencia_anterior" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Experiência Anterior</h2>
+            <div class="space-y-8">
+                 <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Cientista de dados</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Fundação Ezute</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">agosto de 2023 - junho de 2025</p>
+                </div>
+                 <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Analista de prevenção a fraude - Risk</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">RecargaPay</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">janeiro de 2023 - junho de 2023</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Fraude Intelligence SSr Analyst</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Mercado Livre</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">junho de 2021 - abril de 2023</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Analista de dados no Ombudsman</h3>
+                    <p class="font-semibold text-blue-600 dark:text-blue-400">Itaú Unibanco</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">novembro de 2016 - junho de 2021</p>
                 </div>
             </div>
         </section>
@@ -297,6 +349,7 @@
                         <span class="tag">LLM</span>
                         <span class="tag">Chatbot</span>
                         <span class="tag">Saúde</span>
+                        <span class="tag">GenAI</span>
                     </div>
                 </div>
                 <div class="card p-6">
@@ -312,7 +365,7 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="competencias">
+        <section id="competencias" class="mb-12">
             <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Competências & Tecnologias</h2>
             <div class="card p-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -329,11 +382,10 @@
                     <div>
                         <h4 class="font-bold text-lg mb-2 text-slate-900 dark:text-white">Cloud (AWS)</h4>
                         <ul class="list-disc list-inside text-slate-800 dark:text-slate-300">
-                            <li>EventBridge</li>
-                            <li>Lambda</li>
-                            <li>Aurora DB</li>
-                            <li>SQS & S3</li>
-                            <li>ECS</li>
+                            <li>EventBridge & Lambda</li>
+                            <li>Aurora DB & S3</li>
+                            <li>SQS & ECS</li>
+                            <li>Arquitetura de Microsserviços</li>
                         </ul>
                     </div>
                     <div>
@@ -349,6 +401,26 @@
                 </div>
             </div>
         </section>
+
+         <!-- Education Section -->
+        <section id="formacao" class="mb-12">
+            <h2 class="text-2xl font-bold section-title text-slate-900 dark:text-slate-100">Formação Acadêmica</h2>
+            <div class="card p-6">
+                 <div class="space-y-4">
+                     <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">MBA em Data Science e Analytics</h3>
+                        <p class="font-semibold text-blue-600 dark:text-blue-400">MBA USP/Esalq</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">abril de 2023 - janeiro de 2025</p>
+                    </div>
+                     <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Big Data</h3>
+                        <p class="font-semibold text-blue-600 dark:text-blue-400">Laureate International Universities</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">2019 - 2021</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -394,9 +466,6 @@
 
         const systemPrompt = `You are Hugo AI, the professional AI assistant of Hugo Hiroshi. You are an expert in Generative AI, LLM Agents, AWS (EventBridge, Lambda, Aurora DB, SQS, S3, ECS), Python, SQL, and project leadership. You have all the information from Hugo's resume. Your goal is to answer questions in Portuguese about Hugo's experience, skills, and projects. You can also generate innovative AI project ideas in Portuguese if a user asks for one related to a specific industry. Be professional, helpful, and insightful. Base your answers on the provided resume. If you don't know something, state that you'd need to check with the 'human' Hugo. Here is the resume information to base your answers on: ${resumeText}`;
 
-        chatHistory.push({ role: "system", parts: [{ text: systemPrompt }] });
-
-
         async function sendMessage() {
             const userMessage = chatInput.value.trim();
             if (!userMessage) return;
@@ -414,21 +483,15 @@
 
             try {
                 // Configuração da chamada para a API do Gemini
-                const apiKey = "GEMINI_API_KEY_PLACEHOLDER"; // A chave será injetada pelo GitHub Actions
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
                 
                 const payload = {
-                    contents: chatHistory.map(item => ({
-                        role: item.role === 'system' ? 'user' : item.role, // API não tem role 'system', então mapeamos para 'user' no primeiro turno
-                        parts: item.parts
-                    }))
+                    contents: chatHistory,
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
                 };
-
-                // Remove a role 'system' após o primeiro turno, se necessário, ou mantém a lógica de mapeamento
-                if (payload.contents[0].role === 'user' && chatHistory[0].role === 'system') {
-                    payload.contents[0].parts.unshift({text: systemPrompt});
-                }
-
 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
@@ -469,7 +532,13 @@
         function appendMessage(message, sender) {
             const bubble = document.createElement('div');
             bubble.className = `chat-bubble ${sender === 'user' ? 'user-bubble' : 'ai-bubble'}`;
-            bubble.textContent = message;
+            // Simple markdown to HTML conversion for bold and lists
+            let formattedMessage = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            formattedMessage = formattedMessage.replace(/^\* (.*$)/gm, '<ul><li>$1</li></ul>');
+            formattedMessage = formattedMessage.replace(/<\/ul>\n<ul>/g, '');
+
+
+            bubble.innerHTML = formattedMessage;
             chatWindow.appendChild(bubble);
             chatWindow.scrollTop = chatWindow.scrollHeight; // Auto-scroll
         }
@@ -503,7 +572,7 @@
         
         chatToggle.addEventListener('click', () => {
             aiAssistant.classList.toggle('minimized');
-            chatToggle.textContent = aiAssistant.classList.contains('minimized') ? '+' : '−';
+            chatToggle.textContent = aiAssistant.classList.contains('minimized') ? '＋' : '−';
         });
 
     </script>
